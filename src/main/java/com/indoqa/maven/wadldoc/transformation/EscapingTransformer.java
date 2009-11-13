@@ -18,14 +18,14 @@
  */
 package com.indoqa.maven.wadldoc.transformation;
 
-import org.apache.cocoon.sax.AbstractSAXTransformer;
+import org.apache.cocoon.pipeline.component.sax.AbstractTransformer;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 /**
  * This transformer escapes HTML representations.
  */
-public class EscapingTransformer extends AbstractSAXTransformer {
+public class EscapingTransformer extends AbstractTransformer {
 
     private static final String ATT_MEDIA_TYPE = "mediaType";
     private static final String ATT_VALUE_MEDIA_TYPE_HTML = "text/html";

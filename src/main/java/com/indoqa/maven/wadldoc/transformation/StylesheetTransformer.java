@@ -18,12 +18,12 @@
  */
 package com.indoqa.maven.wadldoc.transformation;
 
-import org.apache.cocoon.sax.AbstractSAXTransformer;
-import org.apache.cocoon.xml.sax.AttributesImpl;
+import org.apache.cocoon.pipeline.component.sax.AbstractTransformer;
+import org.apache.cocoon.pipeline.util.AttributesImpl;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
-public class StylesheetTransformer extends AbstractSAXTransformer {
+public class StylesheetTransformer extends AbstractTransformer {
 
     private static final String EL_STYLE = "style";
     private static final String EL_LINK = "link";

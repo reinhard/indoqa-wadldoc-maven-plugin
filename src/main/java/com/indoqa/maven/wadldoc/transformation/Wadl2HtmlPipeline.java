@@ -24,16 +24,15 @@ import java.util.Properties;
 
 import org.apache.cocoon.pipeline.NonCachingPipeline;
 import org.apache.cocoon.pipeline.Pipeline;
-import org.apache.cocoon.sax.SAXPipelineComponent;
-import org.apache.cocoon.sax.component.FileGenerator;
-import org.apache.cocoon.sax.component.XMLSerializer;
-import org.apache.cocoon.sax.component.XSLTTransformer;
+import org.apache.cocoon.pipeline.component.sax.FileGenerator;
+import org.apache.cocoon.pipeline.component.sax.XMLSerializer;
+import org.apache.cocoon.pipeline.component.sax.XSLTTransformer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 
 public class Wadl2HtmlPipeline {
 
-    private Pipeline<SAXPipelineComponent> pipeline;
+    private Pipeline pipeline;
     private final URL wadl;
     private final boolean escapeHtmlRepresentations;
     private String stylesheet;
@@ -51,7 +50,7 @@ public class Wadl2HtmlPipeline {
 
     private void setup() throws PipelineException {
         try {
-            this.pipeline = new NonCachingPipeline<SAXPipelineComponent>();
+            this.pipeline = new NonCachingPipeline();
 
             // start with the WADL file
             this.pipeline.addComponent(new FileGenerator(this.wadl));

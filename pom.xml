@@ -56,12 +56,7 @@
     <dependency>
       <groupId>org.apache.cocoon.pipeline</groupId>
       <artifactId>cocoon-pipeline</artifactId>
-      <version>3.0.0-alpha-2-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.cocoon.sax</groupId>
-      <artifactId>cocoon-sax</artifactId>
-      <version>3.0.0-alpha-2-SNAPSHOT</version>
+      <version>3.0.0-alpha-1</version>
     </dependency>
     
     <!-- Other -->
