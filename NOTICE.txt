@@ -1,0 +1,13 @@
+Indoqa WADL Document Generation Maven Plugin
+Copyright 2009 Indoqa Software Design und Beratung GmbH.
+
+Apache Cocoon, Apache Maven
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+XSLT stylesheet for generating HTML documentation from WADL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This product includes software developed by Mark Nottingham, copyright Yahoo! Inc. 
+and licensed under the Creative Commons Attribution-ShareAlike 2.5 
+(see http://creativecommons.org/licenses/by-sa/2.5/).

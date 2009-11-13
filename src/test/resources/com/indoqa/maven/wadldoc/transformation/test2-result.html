@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Test REST documentation 1</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css"></link>
+</head>
+<body>
+<h1>Test REST documentation 1</h1>
+<ul>
+<li>
+<a href="#resources">Resources</a>
+<ul>
+<li>
+<a href="#N20009">http://localhost:8888/rest/v1/test.html</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#representations">Representations</a>
+<ul>
+<li>
+<a href="#N2002E">Test Representation (text/html)</a>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<div class="resource">
+<h3 id="N20009">/test.html?abc</h3>
+<h6>resource-wide template parameters</h6>
+<table>
+<tr>
+<th>parameter</th>
+<th>value</th>
+<th>description</th>
+</tr>
+<tr>
+<td>
+<p>
+<strong>param1</strong>
+</p>
+</td>
+<td>
+<p>
+<em>
+<a title="" href="http://www.mnot.net/webdesc/%7B$definition/ancestor-or-self::wadl:include%5B1%5D/@href%7D">string</a>
+</em>
+<small> (required)</small>
+</p>
+</td>
+<td>
+<p>Some description</p>
+</td>
+</tr>
+</table>
+<h6>Methods</h6>
+<div class="methods">
+<div class="method">
+<h4 id="http://localhost:8888/rest/v1#nature">GET</h4>
+<h6>request query parameters</h6>
+<table>
+<tr>
+<th>parameter</th>
+<th>value</th>
+<th>description</th>
+</tr>
+<tr>
+<td>
+<p>
+<strong>abc</strong>
+</p>
+</td>
+<td>
+<p>
+<em>
+<a title="" href="http://www.mnot.net/webdesc/%7B$definition/ancestor-or-self::wadl:include%5B1%5D/@href%7D">string</a>
+</em>
+<small> (required)</small>
+</p>
+</td>
+<td>
+<p>Some description</p>
+</td>
+</tr>
+</table>
+<p>
+<em>available response representations:</em>
+</p>
+<ul>
+<li>
+<a href="#N2002E">Test Representation (text/html)</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="representations">Representations</h2>
+<h3 id="N2002E">Test Representation (text/html)</h3>
+<pre>
+&lt;html&gt;
+  &lt;body&gt;
+    An &lt;b&gt;unknown&lt;/b&gt; error occurred. Please resubmit the request.
+  &lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+</body>
+</html>
