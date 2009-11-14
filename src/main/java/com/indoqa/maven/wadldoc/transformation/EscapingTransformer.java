@@ -31,10 +31,11 @@ public class EscapingTransformer extends AbstractTransformer {
     private static final String ATT_VALUE_MEDIA_TYPE_HTML = "text/html";
     private static final String EL_DOC = "doc";
     private static final String EL_REPRESENTATION = "representation";
+    private static final String EL_FAULT = "fault";
     private static final String NS_WADL = "http://research.sun.com/wadl/2006/10";
 
     private boolean inDocElement;
-    private boolean inRepMediaTypeHtml;
+    private boolean inRepOrFault;
 
     @Override
     public void endElement(String uri, String localName, String name) throws SAXException {
@@ -42,11 +43,14 @@ public class EscapingTransformer extends AbstractTransformer {
             this.inDocElement = false;
         }
 
-        if (this.inRepMediaTypeHtml && EL_REPRESENTATION.equals(localName) && NS_WADL.equals(uri)) {
-            this.inRepMediaTypeHtml = false;
+        if (this.inRepOrFault && EL_REPRESENTATION.equals(localName) && NS_WADL.equals(uri)) {
+            this.inRepOrFault = false;
+        }
+        if (this.inRepOrFault && EL_FAULT.equals(localName) && NS_WADL.equals(uri)) {
+            this.inRepOrFault = false;
         }
 
-        if (this.inDocElement && this.inRepMediaTypeHtml) {
+        if (this.inDocElement && this.inRepOrFault) {
             this.escapeEndElement(name);
         } else {
             super.endElement(uri, localName, name);
@@ -55,7 +59,7 @@ public class EscapingTransformer extends AbstractTransformer {
 
     @Override
     public void startElement(String uri, String localName, String name, Attributes atts) throws SAXException {
-        if (this.inDocElement && this.inRepMediaTypeHtml) {
+        if (this.inDocElement && this.inRepOrFault) {
             this.escapeStartElement(name, atts);
         } else {
             super.startElement(uri, localName, name, atts);
@@ -64,10 +68,13 @@ public class EscapingTransformer extends AbstractTransformer {
         if (EL_DOC.equals(localName) && NS_WADL.equals(uri)) {
             this.inDocElement = true;
         }
-        if (EL_REPRESENTATION.equals(localName) && NS_WADL.equals(uri)) {
-            String mediaType = atts.getValue(ATT_MEDIA_TYPE);
-            if (mediaType != null && mediaType.startsWith(ATT_VALUE_MEDIA_TYPE_HTML)) {
-                this.inRepMediaTypeHtml = true;
+        if (NS_WADL.equals(uri)) {
+            if (EL_REPRESENTATION.equals(localName) || EL_FAULT.equals(localName)) {
+                String mediaType = atts.getValue(ATT_MEDIA_TYPE);
+
+                if (mediaType != null && mediaType.startsWith(ATT_VALUE_MEDIA_TYPE_HTML)) {
+                    this.inRepOrFault = true;
+                }
             }
         }
 

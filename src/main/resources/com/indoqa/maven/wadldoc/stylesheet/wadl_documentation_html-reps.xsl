@@ -30,7 +30,7 @@
 >
   <xsl:import href="./wadl_documentation.xsl" />
 
-  <xsl:template match="wadl:representation[@mediaType='text/html']/wadl:doc">
+  <xsl:template match="wadl:representation[@mediaType='text/html']/wadl:doc|wadl:fault[@mediaType='text/html']/wadl:doc">
     <pre>
       <xsl:apply-templates select="node()"/>
     </pre>
